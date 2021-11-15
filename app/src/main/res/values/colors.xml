@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="Cyan_50">#E0F7FA</color>
+    <color name="Cyan_100">#B2EBF2</color>
+    <color name="Cyan_200">#80DEEA</color>
+    <color name="Cyan_300">#4DD0E1</color>
+    <color name="Cyan_400">#26C6DA</color>
+    <color name="Cyan_500">#00BCD4</color>
+    <color name="Cyan_600">#00ACC1</color>
+    <color name="Cyan_700">#0097A7</color>
+    <color name="Cyan_800">#00838F</color>
+    <color name="Cyan_900">#006064</color>
+
+
 </resources>

@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="550dp"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".toDoListFragment">
 
@@ -12,6 +12,32 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:padding="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/floating_action_button"-->
+<!--            android:layout_width="117dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|right"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:contentDescription="@string/app"-->
+<!--            app:srcCompat="@drawable/ic_baseline_add_24"-->
+<!--            tools:ignore="RtlHardcoded" />-->
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <Button
+        android:id="@+id/floating_action_button"
+        android:layout_width="179dp"
+        android:layout_height="91dp"
+        android:text="Button" />
+
 
 </FrameLayout>
+
+
+

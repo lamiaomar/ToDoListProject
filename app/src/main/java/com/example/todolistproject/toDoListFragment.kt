@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolistproject.adapter.taskAdapter
 import com.example.todolistproject.data.dataSource
@@ -35,6 +38,7 @@ class toDoListFragment : Fragment() {
     ): View? {
         _binding = FragmentToDoListBinding.inflate(inflater , container , false)
         val view = binding.root
+        val button : Button = view.findViewById(R.id.floating_action_button)
         return view
     }
 
@@ -42,6 +46,10 @@ class toDoListFragment : Fragment() {
 
         recyclerView = binding.recyclerView
         recyclerView.adapter = taskAdapter(this.requireContext(), dataset )
+        binding.floatingActionButton.setOnClickListener{
+            findNavController().navigate(R.id.action_toDoListFragment_to_addEditFragment)
+        }
+
     }
 
     override fun onDestroy() {
