@@ -15,8 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class DatePickerFragment : DialogFragment() ,
-    DatePickerDialog.OnDateSetListener {
+class DatePickerFragment : DialogFragment() , DatePickerDialog.OnDateSetListener {
 
     private val calender = Calendar.getInstance()
 

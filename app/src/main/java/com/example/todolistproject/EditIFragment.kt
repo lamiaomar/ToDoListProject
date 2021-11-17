@@ -59,11 +59,25 @@ class EditIFragment : Fragment() {
            findNavController().navigate(R.id.action_editIFragment_to_toDoListFragment)
 
         }
+
+        binding.doneButton.setOnClickListener {
+            changeThestate()
+            findNavController().navigate(R.id.action_editIFragment_to_viewFragment)
+
+        }
+
+//        binding.state.setOnCheckedChangeListener { _, isChecked ->
+//            sharedViewModel.setState()
+//        }
     }
 
     fun displayTheEdit(){
         sharedViewModel.editInList()
         findNavController().navigate(R.id.action_editIFragment_to_toDoListFragment)
+    }
+
+    fun changeThestate(){
+        sharedViewModel.setState()
     }
 
 }

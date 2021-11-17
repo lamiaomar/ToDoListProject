@@ -48,7 +48,6 @@ class toDoListFragment : Fragment() {
         recyclerView.adapter = taskAdapter(this.requireContext(), dataset )
 
         binding.floatingActionButton.setOnClickListener{
-
             findNavController().navigate(R.id.action_toDoListFragment_to_addFragment)
         }
 

@@ -14,20 +14,23 @@
         android:padding="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <Button
             android:id="@+id/floating_action_button"
-            android:layout_width="304dp"
-            android:layout_height="61dp"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
             android:text="ADD"
-            android:layout_marginTop="450dp"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.449"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.912" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

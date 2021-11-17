@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolistproject.databinding.FragmentAddBinding
@@ -47,47 +48,43 @@ class AddFragment : Fragment(R.layout.fragment_add) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        _viewBinding = FragmentAddBinding.bind(view)
+ //       _binding = FragmentAddBinding.bind(view)
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             addFragment= this@AddFragment
-
-
         }
 
-//        viewBinding?.apply {
-//            dueDateButton.setOnClickListener {
-//                //create the object
-//                val datePickerFragment = DatePickerFragment()
-//                val supportFragmentManager = requireActivity().supportFragmentManager
-//
-//                supportFragmentManager?.setFragmentResultListener(
-//                    "REQUEST_CODE" , viewLifecycleOwner){
-//                        resultKey , bundle ->
-//
-//                    if (resultKey == "REQUEST_CODE"){
-//                        val date = bundle.getString("SELECTED_DATE")
-//                        calenderText.text = date
-//                    }
-//
-//                }
-//            }
-//        }
+        //Calender
+        _binding?.apply {
+            dueDateButton.setOnClickListener {
+                Toast.makeText(context, "dueDateButton", Toast.LENGTH_SHORT).show()
+                //create the object
+                val datePickerFragment = DatePickerFragment()
+                val supportFragmentManager = requireActivity().supportFragmentManager
+
+
+                datePickerFragment.show(parentFragmentManager,"REQUEST_CODE")
+
+
+                supportFragmentManager?.setFragmentResultListener(
+                    "REQUEST_CODE" , viewLifecycleOwner){
+                        resultKey , bundle ->
+
+                    if (resultKey == "REQUEST_CODE"){
+                        val date = bundle.getString("SELECTED_DATE")
+                        calenderText.text = date
+                    }
+
+                }
+            }
+        }
 
     }
 
     fun setTask() {
         sharedViewModel.addItemToList()
         findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
-
     }
-
-
-
-
-
-
-
 }

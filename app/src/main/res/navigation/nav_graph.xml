@@ -54,6 +54,9 @@
         <argument
             android:name="title"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_editIFragment_to_viewFragment"
+            app:destination="@id/viewFragment" />
     </fragment>
     <fragment
         android:id="@+id/datePickerFragment"

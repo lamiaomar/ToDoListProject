@@ -13,20 +13,22 @@ class TaskViewModel : ViewModel() {
     val currentPosition
         get() = _currentPosition
 
-    var title = MutableLiveData<String>()
+    var title = MutableLiveData<String?>()
 
-    var description = MutableLiveData<String>()
+    var description = MutableLiveData<String?>()
 
-    var dueDate = MutableLiveData<String>()
+    var dueDate = MutableLiveData<String?>()
 
     var date = MutableLiveData<Date>()
 
     var state = MutableLiveData<Boolean>()
 
 
+
     fun addItemToList() {
+
         var item = Task(title.value!!,description.value!!
-                       ,dueDate.value!! ,true)
+                       ,dueDate.value!! ,false)
         alltasks.add(item)
 
         /*
@@ -37,6 +39,8 @@ class TaskViewModel : ViewModel() {
         title.value = null
         description.value = null
         dueDate.value = null
+        state.value = false
+
 
     }
 
@@ -46,6 +50,7 @@ class TaskViewModel : ViewModel() {
         title.value = item.title
         description.value = item.description.toString()
         dueDate.value = item.dueDate.toString()
+        state.value = item.state
 
     }
 
@@ -57,7 +62,7 @@ class TaskViewModel : ViewModel() {
     fun editInList(){
         //Add the item in the task as new item
         var item = Task(title.value!!,description.value!!
-                        ,dueDate.value!! ,true)
+                        ,dueDate.value!! ,state.value!!)
 
         alltasks.add(item)
 
@@ -66,9 +71,12 @@ class TaskViewModel : ViewModel() {
     }
 
 
-    fun setState(state1 : Boolean){
-        state.value = state1
+    fun setState() : Boolean{
+        if (state.value!!.equals(true)) return true
+
+        return false
     }
+
 
 
 }

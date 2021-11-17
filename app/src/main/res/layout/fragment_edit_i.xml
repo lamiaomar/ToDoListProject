@@ -157,12 +157,10 @@
 
                 <CheckBox
                     android:id="@+id/state"
+                    android:text="Completed"
                     android:layout_width="173dp"
                     android:layout_height="53dp"
-                    android:text="state"
-                    android:checked="@{viewModel.state.equals(true)}"
-                    android:onClick="@{() -> viewModel.setState(true)}"
-                    android:defaultFocusHighlightEnabled="true"
+                    android:checked="@={viewModel.state}"
                     app:layout_constraintBottom_toTopOf="@+id/doneButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

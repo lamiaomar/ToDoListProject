@@ -56,6 +56,7 @@ class ViewFragment : Fragment() {
 
         //To display data
         sharedViewModel.showData()
+        setTheStateInView()
 
         binding.doneButton.setOnClickListener {
 
@@ -69,9 +70,16 @@ class ViewFragment : Fragment() {
 
         }
 
+//        sharedViewModel.setState(){
+//
+//        }
     }
 
+    fun setTheStateInView(){
+        if (sharedViewModel.setState())
+            binding.viewIsCompleted.text = "COMPLETED"
 
+    }
 
 
 
