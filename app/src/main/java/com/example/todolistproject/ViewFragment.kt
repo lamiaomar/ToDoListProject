@@ -15,7 +15,7 @@ import com.example.todolistproject.model.TaskViewModel
 
 private const val position = "title"
 
-class viewFragment : Fragment() {
+class ViewFragment : Fragment() {
 
     private lateinit var binding: FragmentViewBinding
 
@@ -38,6 +38,7 @@ class viewFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater , R.layout.fragment_view , container , false)
+
         return binding.root
 
     }
@@ -47,23 +48,32 @@ class viewFragment : Fragment() {
 
         sharedViewModel.currentPosition.value = taskNum
 
+        //Live data
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
         }
 
+        //To display data
         sharedViewModel.showData()
+
+        binding.doneButton.setOnClickListener {
+
+            findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
+
+        }
+
+        binding.editButton.setOnClickListener {
+//            sharedViewModel.showData()
+            findNavController().navigate(R.id.action_viewFragment_to_editIFragment)
+
+        }
 
     }
 
-//    fun deleteFromList(item : Task){
-//        alltasks.remove(item)
-//    }
-//    fun delete (){
-//        binding.deleteButton.setOnClickListener {
-//
-//        }
-//    }
+
+
+
 
 }
 

@@ -1,8 +1,11 @@
 package com.example.todolistproject.model
 
-import androidx.lifecycle.LiveData
+import android.app.DatePickerDialog
+import androidx.databinding.adapters.TextViewBindingAdapter.setText
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TaskViewModel : ViewModel() {
 
@@ -10,33 +13,39 @@ class TaskViewModel : ViewModel() {
     val currentPosition
         get() = _currentPosition
 
-    private val _title = MutableLiveData<String>()
-    val title : LiveData<String>
-         get() = _title
+    var title = MutableLiveData<String>()
 
-    private val _description = MutableLiveData<String>()
-    val description : LiveData<String>
-        get() = _description
+    var description = MutableLiveData<String>()
 
-    private val _dueDate = MutableLiveData<String>()
-    val dueDate : LiveData<String>
-        get() = _dueDate
+    var dueDate = MutableLiveData<String>()
 
-//    private val _state = MutableLiveData<Boolean>()
-//    val state : LiveData<Boolean>
-//        get() = _state
+    var date = MutableLiveData<Date>()
+
+    var state = MutableLiveData<Boolean>()
 
 
-    fun addItemToList(item: Task) {
+    fun addItemToList() {
+        var item = Task(title.value!!,description.value!!
+                       ,dueDate.value!! ,true)
         alltasks.add(item)
+
+        /*
+        set the value to NULL ,
+        when I visit ( AddFargment )
+         agin no value will displayed
+         */
+        title.value = null
+        description.value = null
+        dueDate.value = null
+
     }
 
     fun showData (){
         val item = alltasks[_currentPosition.value!!]
 
-        _title.value = item.title
-        _description.value = item.description
-        _dueDate.value = item.dueDate
+        title.value = item.title
+        description.value = item.description.toString()
+        dueDate.value = item.dueDate.toString()
 
     }
 
@@ -45,7 +54,21 @@ class TaskViewModel : ViewModel() {
         alltasks.remove(item)
     }
 
+    fun editInList(){
+        //Add the item in the task as new item
+        var item = Task(title.value!!,description.value!!
+                        ,dueDate.value!! ,true)
 
+        alltasks.add(item)
+
+        //then delte the item
+        deleteFromList()
+    }
+
+
+    fun setState(state1 : Boolean){
+        state.value = state1
+    }
 
 
 }

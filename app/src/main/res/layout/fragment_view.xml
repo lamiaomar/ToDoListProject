@@ -2,169 +2,146 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <data>
         <variable
             name="viewModel"
             type="com.example.todolistproject.model.TaskViewModel" />
 
+        <variable
+            name="viewFragment"
+            type="com.example.todolistproject.ViewFragment" />
+
     </data>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".viewFragment">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:text="@string/TASKDETAILS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/titleName"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:hint="enter_your_word"
-        android:inputType="text"
-        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_edit_title"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:inputType="textPersonName|textNoSuggestions"
-            android:maxLines="1"
-            android:text="@{viewModel.title}" />
-    </com.google.android.material.textfield.TextInputLayout>
+            tools:context=".ViewFragment">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:text="@string/DUEDATE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleName" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="@string/TASKDETAILS"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField1"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:hint="Calender"
-        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1">
+            <TextView
+                android:id="@+id/text_edit_title"
+                android:layout_width="51dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.title}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_edit_text1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:inputType="textPersonName|textNoSuggestions"
-            android:maxLines="1"
-            android:text="@{viewModel.dueDate}"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="@string/DUEDATE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_edit_title" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/NOTES"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textField1" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textDescription"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="Tap to Edit"
-        android:maxHeight="200dp"
-        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_edit_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:inputType="textPersonName|textNoSuggestions"
-            android:maxLines="1"
-            android:text="@{viewModel.description}" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
-        android:text="Done"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_marginTop="27dp"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/state"
-        android:layout_width="173dp"
-        android:layout_height="53dp"
-        android:text="state"
-        android:defaultFocusHighlightEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+            <TextView
+                android:id="@+id/text_input_edit_text1"
+                android:layout_width="38dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:text="@{viewModel.dueDate}"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.091"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="68dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/NOTES"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/doneButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.088"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_input_edit_text1"
+                app:layout_constraintVertical_bias="0.0" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="198dp"
+                android:layout_height="104dp"
+                android:layout_marginTop="28dp"
+                android:autoSizeMinTextSize="100dp"
+                android:text="@{viewModel.dueDate}"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.248"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <Button
+                android:id="@+id/doneButton"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:text="Done"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_marginTop="27dp"
+                android:text="Cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/doneButton"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/editButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="145dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="236dp"
+                android:layout_marginEnd="48dp"
+                android:text="Edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/doneButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-    </layout>
+</layout>

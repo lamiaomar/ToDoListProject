@@ -38,7 +38,7 @@ class toDoListFragment : Fragment() {
     ): View? {
         _binding = FragmentToDoListBinding.inflate(inflater , container , false)
         val view = binding.root
-        val button : Button = view.findViewById(R.id.floating_action_button)
+//        val button : Button = view.findViewById(R.id.floating_action_button)
         return view
     }
 
@@ -46,8 +46,10 @@ class toDoListFragment : Fragment() {
 
         recyclerView = binding.recyclerView
         recyclerView.adapter = taskAdapter(this.requireContext(), dataset )
+
         binding.floatingActionButton.setOnClickListener{
-            findNavController().navigate(R.id.action_toDoListFragment_to_addEditFragment)
+
+            findNavController().navigate(R.id.action_toDoListFragment_to_addFragment)
         }
 
     }

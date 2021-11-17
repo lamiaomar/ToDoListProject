@@ -11,31 +11,53 @@
         android:label="fragment_to_do_list"
         tools:layout="@layout/fragment_to_do_list" >
         <action
-            android:id="@+id/action_toDoListFragment_to_addEditFragment"
-            app:destination="@id/addEditFragment" />
-        <action
             android:id="@+id/action_toDoListFragment_to_viewFragment"
             app:destination="@id/viewFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addEditFragment"
-        android:name="com.example.todolistproject.addEditFragment"
-        android:label="fragment_add_edit"
-        tools:layout="@layout/fragment_add_edit" >
         <action
-            android:id="@+id/action_addEditFragment_to_toDoListFragment"
-            app:destination="@id/toDoListFragment" />
+            android:id="@+id/action_toDoListFragment_to_addFragment"
+            app:destination="@id/addFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewFragment"
-        android:name="com.example.todolistproject.viewFragment"
+        android:name="com.example.todolistproject.ViewFragment"
         android:label="fragment_view"
         tools:layout="@layout/fragment_view" >
+        <argument
+            android:name="title"
+            app:argType="integer" />
         <action
-            android:id="@+id/action_viewFragment_to_addEditFragment"
-            app:destination="@id/addEditFragment" />
+            android:id="@+id/action_viewFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
+        <action
+            android:id="@+id/action_viewFragment_to_editIFragment"
+            app:destination="@id/editIFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.todolistproject.AddFragment"
+        android:label="AddFragment" >
+        <action
+            android:id="@+id/action_addFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editIFragment"
+        android:name="com.example.todolistproject.EditIFragment"
+        android:label="fragment_edit_i"
+        tools:layout="@layout/fragment_edit_i" >
+        <action
+            android:id="@+id/action_editIFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
         <argument
             android:name="title"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/datePickerFragment"
+        android:name="com.example.todolistproject.model.DatePickerFragment"
+        android:label="fragment_date_picker"
+        tools:layout="@layout/fragment_date_picker" />
 </navigation>

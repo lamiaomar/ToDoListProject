@@ -1,10 +1,11 @@
 package com.example.todolistproject.model
 
-import android.widget.CheckBox
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 data class Task(
-    val title : String ,
-    val description : String,
-    val dueDate :String ,
-    val state : Boolean
+    val title: String,
+    val description: String,
+    val dueDate: String,
+    val state: Boolean = false
 )
