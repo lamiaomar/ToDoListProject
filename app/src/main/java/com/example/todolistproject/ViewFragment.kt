@@ -1,5 +1,6 @@
 package com.example.todolistproject
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -70,6 +71,7 @@ class ViewFragment : Fragment() {
 
         }
 
+        sharedViewModel.setCurrentDay()
 //        sharedViewModel.setState(){
 //
 //        }
@@ -77,7 +79,11 @@ class ViewFragment : Fragment() {
 
     fun setTheStateInView(){
         if (sharedViewModel.setState())
-            binding.viewIsCompleted.text = "COMPLETED"
+            binding.viewIsCompleted.text = "DONE"
+            binding.viewIsCompleted.setPaintFlags(
+            binding.viewIsCompleted.getPaintFlags() or
+                    Paint.STRIKE_THRU_TEXT_FLAG)
+
 
     }
 

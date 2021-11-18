@@ -1,9 +1,11 @@
 package com.example.todolistproject.model
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import androidx.databinding.adapters.TextViewBindingAdapter.setText
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.todolistproject.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,7 +21,7 @@ class TaskViewModel : ViewModel() {
 
     var dueDate = MutableLiveData<String?>()
 
-    var date = MutableLiveData<Date>()
+    var currentDate = MutableLiveData<String>()
 
     var state = MutableLiveData<Boolean>()
 
@@ -28,7 +30,7 @@ class TaskViewModel : ViewModel() {
     fun addItemToList() {
 
         var item = Task(title.value!!,description.value!!
-                       ,dueDate.value!! ,false)
+                       ,dueDate.value!! ,false, R.drawable.notcompleted)
         alltasks.add(item)
 
         /*
@@ -62,7 +64,7 @@ class TaskViewModel : ViewModel() {
     fun editInList(){
         //Add the item in the task as new item
         var item = Task(title.value!!,description.value!!
-                        ,dueDate.value!! ,state.value!!)
+                        ,dueDate.value!! ,state.value!!, R.drawable.notcompleted)
 
         alltasks.add(item)
 
@@ -76,6 +78,19 @@ class TaskViewModel : ViewModel() {
 
         return false
     }
+
+//    fun setDate(){
+//        dueDate.value =
+//    }
+
+    @SuppressLint("SimpleDateFormat")
+    fun setCurrentDay() {
+        val sdf = SimpleDateFormat("dd/M/yyyy")
+        val currentDate1 = sdf.format(Date())
+
+        currentDate.value = currentDate1 }
+
+
 
 
 

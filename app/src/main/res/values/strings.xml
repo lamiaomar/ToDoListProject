@@ -15,4 +15,5 @@
     <string name="not_completed">Not Completed</string>
     <string name="comleted">Comleted</string>
     <string name="not">Not</string>
+    <string name="creationDay">The creation date %s</string>
 </resources>

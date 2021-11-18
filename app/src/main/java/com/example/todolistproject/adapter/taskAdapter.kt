@@ -1,10 +1,12 @@
 package com.example.todolistproject.adapter
 
 import android.content.Context
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
@@ -30,7 +32,8 @@ class taskAdapter (
                 val dueDateTask : TextView = view.findViewById(R.id.dueDate_textView)
                 val descTask : TextView = view.findViewById(R.id.desc_textView)
                 val isCompleted : TextView = view.findViewById(R.id.isCompleted)
-
+                val iconCheck : ImageView = view.findViewById(R.id.imageView)
+                val viewInfo : ImageView = view.findViewById(R.id.viewInfo)
             }
 
     override fun onCreateViewHolder(
@@ -51,8 +54,9 @@ class taskAdapter (
         holder.dueDateTask.text = item.dueDate
         holder.descTask.text = item.description
 
-        if (item.state){
-            holder.isCompleted.text = "COMPLETED"
+        if (item.state == true)
+        {
+            holder.iconCheck.setImageResource(R.drawable.completed)
         }
 
 
@@ -68,10 +72,10 @@ class taskAdapter (
 //            }
 //        }
 
-        holder.nameTask.setOnClickListener {
+        holder.viewInfo.setOnClickListener {
 
             val action = toDoListFragmentDirections.actionToDoListFragmentToViewFragment(position)
-            holder.nameTask.findNavController().navigate(action)
+            holder.viewInfo.findNavController().navigate(action)
 
         }
 

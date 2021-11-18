@@ -10,7 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
+import com.example.todolistproject.data.dataSource
 import com.example.todolistproject.databinding.FragmentAddBinding
 import com.example.todolistproject.model.DatePickerFragment
 import com.example.todolistproject.model.TaskViewModel
@@ -48,12 +50,12 @@ class AddFragment : Fragment(R.layout.fragment_add) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
- //       _binding = FragmentAddBinding.bind(view)
+        //       _binding = FragmentAddBinding.bind(view)
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
-            addFragment= this@AddFragment
+            addFragment = this@AddFragment
         }
 
         //Calender
@@ -64,27 +66,34 @@ class AddFragment : Fragment(R.layout.fragment_add) {
                 val datePickerFragment = DatePickerFragment()
                 val supportFragmentManager = requireActivity().supportFragmentManager
 
+                datePickerFragment.show(parentFragmentManager, "TAG")
 
-                datePickerFragment.show(parentFragmentManager,"REQUEST_CODE")
 
+                datePickerFragment?.setFragmentResultListener(
+                    "REQUEST_CODE"
+                ) {
 
-                supportFragmentManager?.setFragmentResultListener(
-                    "REQUEST_CODE" , viewLifecycleOwner){
-                        resultKey , bundle ->
-
-                    if (resultKey == "REQUEST_CODE"){
+                        resultKey, bundle ->
+                    if (resultKey == "REQUEST_CODE") {
                         val date = bundle.getString("SELECTED_DATE")
                         calenderText.text = date
+
                     }
 
                 }
             }
         }
 
+                         sharedViewModel.setCurrentDay()
     }
 
     fun setTask() {
         sharedViewModel.addItemToList()
         findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
+    }
+
+    fun setCurrentDayToADD(){
+        val creationDay = sharedViewModel.setCurrentDay()
+
     }
 }

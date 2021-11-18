@@ -98,12 +98,12 @@
                 android:id="@+id/textDescription"
                 android:layout_width="198dp"
                 android:layout_height="104dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="40dp"
                 android:autoSizeMinTextSize="100dp"
-                android:text="@{viewModel.dueDate}"
+                android:text="@{viewModel.description}"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.248"
+                app:layout_constraintHorizontal_bias="0.591"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -148,13 +148,24 @@
                 android:id="@+id/viewIsCompleted"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="148dp"
+                android:layout_marginBottom="152dp"
+                android:text="-"
                 app:layout_constraintBottom_toTopOf="@+id/editButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="not"
-                app:layout_constraintHorizontal_bias="0.636"
+                app:layout_constraintHorizontal_bias="0.138"
                 app:layout_constraintStart_toEndOf="@+id/text_edit_title" />
 
+            <TextView
+                android:id="@+id/currentDate"
+                android:layout_width="0dp"
+                android:layout_height="51dp"
+                android:layout_marginBottom="64dp"
+                android:text="@{@string/creationDay(viewModel.currentDate)}"
+                app:layout_constraintBottom_toTopOf="@+id/doneButton"
+                app:layout_constraintEnd_toStartOf="@+id/textDescription"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

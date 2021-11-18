@@ -96,8 +96,20 @@
                     android:background="@color/white"
                     android:inputType="textPersonName|textNoSuggestions"
                     android:maxLines="1"
-                    android:text="@={viewModel.dueDate}"/>
+                    android:text="@={viewModel.dueDate}" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/calenderText"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@={viewModel.dueDate}"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="155dp"
+                app:layout_constraintBottom_toTopOf="@+id/doneButton"
+                app:layout_constraintEnd_toStartOf="@+id/dueDate_button"
+                app:layout_constraintStart_toStartOf="parent" />
+
 
             <TextView
                 android:id="@+id/textView2"
@@ -171,16 +183,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
-            <TextView
-                android:id="@+id/calenderText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="21dp"
-                android:layout_marginBottom="155dp"
-                android:text="TextView"
-                app:layout_constraintBottom_toTopOf="@+id/doneButton"
-                app:layout_constraintEnd_toStartOf="@+id/dueDate_button"
-                app:layout_constraintStart_toStartOf="parent" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
