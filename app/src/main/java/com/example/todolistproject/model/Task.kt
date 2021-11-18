@@ -8,5 +8,7 @@ data class Task(
     val description: String,
     val dueDate: String,
     val state: Boolean ,
-    val imageState : Int
+    val imageState : Int ,
+    val cretionDate : String ,
+    val passDay : String
 )

@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.example.todolistproject.databinding.FragmentViewBinding
+import com.example.todolistproject.model.DatePickerFragment
 import com.example.todolistproject.model.Task
 import com.example.todolistproject.model.alltasks
 import com.example.todolistproject.model.TaskViewModel
@@ -59,11 +62,7 @@ class ViewFragment : Fragment() {
         sharedViewModel.showData()
         setTheStateInView()
 
-        binding.doneButton.setOnClickListener {
 
-            findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
-
-        }
 
         binding.editButton.setOnClickListener {
 //            sharedViewModel.showData()
@@ -71,10 +70,23 @@ class ViewFragment : Fragment() {
 
         }
 
+        binding.button1.setOnClickListener{
+            backtoMainFrag()
+        }
+
+        binding.doneButton.setOnClickListener{
+            backtoMainFrag()
+        }
+
         sharedViewModel.setCurrentDay()
-//        sharedViewModel.setState(){
-//
-//        }
+
+        //To assign the task is passed or no
+
+        sharedViewModel.assignTheDate()
+
+        //To calculate the num of day past
+        sharedViewModel.calculateHMDayLeft(sharedViewModel.dueDate.value!!)
+
     }
 
     fun setTheStateInView(){
@@ -84,6 +96,12 @@ class ViewFragment : Fragment() {
             binding.viewIsCompleted.getPaintFlags() or
                     Paint.STRIKE_THRU_TEXT_FLAG)
 
+
+    }
+
+
+    fun backtoMainFrag(){
+        findNavController().navigate(R.id.action_viewFragment_to_toDoListFragment)
 
     }
 

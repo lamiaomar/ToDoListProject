@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ToDoListProject</string>
+    <string name="app_name">ToDo</string>
 
 
     <string name="Title">Title</string>
@@ -16,4 +16,13 @@
     <string name="comleted">Comleted</string>
     <string name="not">Not</string>
     <string name="creationDay">The creation date %s</string>
+    
+    <string name="remove">Remove the task?</string>
+    <string name="message">Are you sure you want to delete the ? </string>
+    <string name="exit">Exit</string>
+    <string name="delete">Delete</string>
+    <string name="TaskDetalis">Task Details</string>
+    <string name="addNewTask">Add New Task</string>
+    <string name="edit">Edit</string>
+    <string name="creationdate">creationDate</string>
 </resources>

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/toDoListFragment"
         android:name="com.example.todolistproject.toDoListFragment"
-        android:label="fragment_to_do_list"
+        android:label="ToDo List"
         tools:layout="@layout/fragment_to_do_list" >
         <action
             android:id="@+id/action_toDoListFragment_to_viewFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/viewFragment"
         android:name="com.example.todolistproject.ViewFragment"
-        android:label="fragment_view"
+        android:label="@string/TaskDetalis"
         tools:layout="@layout/fragment_view" >
         <argument
             android:name="title"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.todolistproject.AddFragment"
-        android:label="AddFragment" >
+        android:label="@string/addNewTask" >
         <action
             android:id="@+id/action_addFragment_to_toDoListFragment"
             app:destination="@id/toDoListFragment" />
@@ -46,7 +46,7 @@
     <fragment
         android:id="@+id/editIFragment"
         android:name="com.example.todolistproject.EditIFragment"
-        android:label="fragment_edit_i"
+        android:label="@string/edit"
         tools:layout="@layout/fragment_edit_i" >
         <action
             android:id="@+id/action_editIFragment_to_toDoListFragment"
@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_editIFragment_to_viewFragment"
             app:destination="@id/viewFragment" />
+        <action
+            android:id="@+id/action_editIFragment_self"
+            app:destination="@id/editIFragment" />
     </fragment>
     <fragment
         android:id="@+id/datePickerFragment"

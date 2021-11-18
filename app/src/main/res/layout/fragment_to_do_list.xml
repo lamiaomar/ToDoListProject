@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".toDoListFragment">
+    tools:context=".toDoListFragment"
+    android:layout_marginTop="30dp"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -13,27 +15,58 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:padding="16dp"
+        android:layout_marginTop="30dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp">
 
 
-        <Button
+<!--        <Button-->
+<!--            android:id="@+id/floating_action_button"-->
+<!--            android:layout_width="111dp"-->
+<!--            android:layout_height="53dp"-->
+<!--            android:drawableRight="@drawable/ic_baseline_add_24"-->
+<!--            android:text="ADD"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintCircleRadius="300dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.445"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.907" />-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_action_button"
-            android:layout_width="111dp"
-            android:layout_height="53dp"
-            android:drawableRight="@drawable/ic_baseline_add_24"
-            android:text="ADD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintCircleRadius="300dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.445"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.907" />
+            app:layout_constraintVertical_bias="0.917"
+            android:src="@drawable/ic_baseline_add_24"
+
+             />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tasks"
+        android:textSize="30dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/Cyan_900"
+
+        />
 
 
 </FrameLayout>

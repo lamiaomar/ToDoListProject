@@ -56,7 +56,10 @@ class taskAdapter (
 
         if (item.state == true)
         {
-            holder.iconCheck.setImageResource(R.drawable.completed)
+            holder.iconCheck.setImageResource(R.drawable.ic_baseline_radio_button_checked_24)
+        }else{
+            holder.iconCheck.setImageResource(R.drawable.ic_baseline_radio_button_unchecked_24)
+
         }
 
 

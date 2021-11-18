@@ -1,22 +1,17 @@
 package com.example.todolistproject
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
-import com.example.todolistproject.data.dataSource
 import com.example.todolistproject.databinding.FragmentAddBinding
 import com.example.todolistproject.model.DatePickerFragment
 import com.example.todolistproject.model.TaskViewModel
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -24,9 +19,6 @@ class AddFragment : Fragment(R.layout.fragment_add) {
 
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-
-//    private var _viewBinding : FragmentAddBinding? = null
-//    private val viewBinding get() = _viewBinding!!
 
     private val sharedViewModel: TaskViewModel by activityViewModels()
 
@@ -45,12 +37,12 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
 
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //       _binding = FragmentAddBinding.bind(view)
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
@@ -61,7 +53,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         //Calender
         _binding?.apply {
             dueDateButton.setOnClickListener {
-                Toast.makeText(context, "dueDateButton", Toast.LENGTH_SHORT).show()
+
                 //create the object
                 val datePickerFragment = DatePickerFragment()
                 val supportFragmentManager = requireActivity().supportFragmentManager
@@ -84,7 +76,11 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             }
         }
 
+        sharedViewModel.resetVlues()
+
+        //To set the current day of creation
                          sharedViewModel.setCurrentDay()
+
     }
 
     fun setTask() {
@@ -92,8 +88,9 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
     }
 
-    fun setCurrentDayToADD(){
-        val creationDay = sharedViewModel.setCurrentDay()
+    fun backtoMainFrag(){
+
+        findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
 
     }
 }

@@ -131,53 +131,104 @@
                         android:text="@={viewModel.description}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/doneButton"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="204dp"
-                    android:text="Done"
-                    android:onClick="@{()-> EditFragment.displayTheEdit()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+<!--                <Button-->
+<!--                    android:id="@+id/doneButton"-->
+<!--                    android:layout_width="350dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="204dp"-->
+<!--                    android:text="Done"-->
+<!--                    android:onClick="@{()-> EditFragment.displayTheEdit()}"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/textDescription" />-->
 
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="350dp"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/doneButton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_marginTop="27dp"
-                    android:text="Cancel"
+                    android:layout_gravity="bottom|right"
+                    android:layout_margin="16dp"
+                    android:onClick="@{()-> EditFragment.displayTheEdit()}"
+                    android:src="@drawable/ic_baseline_check_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.616"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/doneButton"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/textDescription"
+                    app:layout_constraintVertical_bias="0.465" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/buttonCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:layout_margin="16dp"
+                    android:onClick="@{()-> EditFragment.backtoMainFrag()}"
+                    android:src="@drawable/ic_baseline_cancel_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.295"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDescription"
+                    app:layout_constraintVertical_bias="0.469" />
 
                 <CheckBox
                     android:id="@+id/state"
-                    android:text="Completed"
                     android:layout_width="173dp"
                     android:layout_height="53dp"
+
                     android:checked="@={viewModel.state}"
+                    android:text="Completed"
+                    app:layout_constraintBottom_toTopOf="@+id/doneButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/deleteButton"
+                    app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+
+<!--                <Button-->
+<!--                    android:id="@+id/deleteButton"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="28dp"-->
+<!--                    android:text="Delete"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/state"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/textDescription" />-->
+
+                <TextView
+                    android:id="@+id/calenderText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="21dp"
+                    android:layout_marginBottom="155dp"
+                    android:text="@={viewModel.dueDate}"
                     app:layout_constraintBottom_toTopOf="@+id/doneButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
-                <Button
-                    android:id="@+id/deleteButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
-                    android:text="Delete"
-                    app:layout_constraintBottom_toTopOf="@+id/state"
+                <ImageView
+                    android:id="@+id/button1"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textField1"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.02"
+                    app:layout_constraintStart_toEndOf="@+id/textView1"
+                    app:srcCompat="@drawable/ic_baseline_today_24" />
+
+                <ImageView
+                    android:id="@+id/deleteButton"
+                    android:layout_width="40dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="55dp"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonCancel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textDescription" />
-
-
+                    app:layout_constraintTop_toBottomOf="@+id/textDescription"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
