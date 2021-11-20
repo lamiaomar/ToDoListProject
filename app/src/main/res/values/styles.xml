@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Cupcake.CompoundButton.RadioButton"
+        parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="TextAppearance.Cupcake.Subtitle1"
+        parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Widget.App.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/Cyan_100</item>
+    </style>
+
+</resources>

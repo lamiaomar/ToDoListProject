@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToDo</string>
+    <string name="Title">العنوان</string>
+    <string name="DueDate">تاريخ  الاستحقاق</string>
+    <string name="Description">وصف</string>
+    <string name="TASKDETAILS">تفاصيل المهمة</string>
+    <string name="DUEDATE">تاريخ  الاستحقاق</string>
+    <string name="NOTES">ملاحظات</string>
+    <string name="not_completed">لم تكتمل</string>
+    <string name="comleted">اكتملت</string>
+    <string name="creationDay">تاريخ الانشاء</string>
+    <string name="remove">حذف المهمة ؟</string>
+    <string name="message">"هل انت متأكد من حذف المهمة ؟ "</string>
+    <string name="exit">خروج</string>
+    <string name="delete">حذف</string>
+    <string name="TaskDetalis">تفاصيل المهمة</string>
+    <string name="addNewTask">اضافة مهمة جديدة</string>
+    <string name="edit">تعديل</string>
+    <string name="creationdate">تاريخ الانشاء</string>
+    <string name="Youhavetofillallfields">يجب عليك ملىء الحقول</string>
+    <string name="enterthetitle">أدخل العنوان</string>
+    <string name="calender">التقويم</string>
+    <string name="enterYourNote">ادخل ملاحتظاتك</string>
+    <string name="tap_to_edit">أدخل العنوان</string>
+    <string name="Dataisupdated">"تم تعديل البيانات "</string>
+    <string name="tasks">Tasks</string>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/toDoListFragment">
+
+    <fragment
+        android:id="@+id/toDoListFragment"
+        android:name="com.example.todolistproject.toDoListFragment"
+        android:label="ToDo List"
+        tools:layout="@layout/fragment_to_do_list" >
+        <action
+            android:id="@+id/action_toDoListFragment_to_viewFragment"
+            app:destination="@id/viewFragment" />
+        <action
+            android:id="@+id/action_toDoListFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.example.todolistproject.ViewFragment"
+        android:label="@string/TaskDetalis"
+        tools:layout="@layout/fragment_view" >
+        <argument
+            android:name="title"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_viewFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
+        <action
+            android:id="@+id/action_viewFragment_to_editIFragment"
+            app:destination="@id/editIFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.todolistproject.AddFragment"
+        android:label="@string/addNewTask" >
+        <action
+            android:id="@+id/action_addFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+        <action
+            android:id="@+id/action_addFragment_self"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editIFragment"
+        android:name="com.example.todolistproject.EditIFragment"
+        android:label="@string/edit"
+        tools:layout="@layout/fragment_edit_i" >
+        <action
+            android:id="@+id/action_editIFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
+        <argument
+            android:name="title"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_editIFragment_to_viewFragment"
+            app:destination="@id/viewFragment" />
+        <action
+            android:id="@+id/action_editIFragment_self"
+            app:destination="@id/editIFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datePickerFragment"
+        android:name="com.example.todolistproject.model.DatePickerFragment"
+        android:label="fragment_date_picker"
+        tools:layout="@layout/fragment_date_picker" />
+</navigation>
