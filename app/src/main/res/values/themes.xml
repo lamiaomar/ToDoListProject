@@ -3,13 +3,13 @@
     <style name="Theme.ToDoListProject" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
 
 
-    <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/Cyan_700</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Cyan_800</item>
         <item name="colorPrimaryVariant">@color/Cyan_900</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/Cyan_600</item>
-        <item name="colorSecondaryVariant">@color/Cyan_700</item>
+        <item name="colorSecondary">@color/Cyan_800</item>
+        <item name="colorSecondaryVariant">@color/Cyan_900</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

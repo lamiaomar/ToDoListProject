@@ -6,15 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.example.todolistproject.databinding.FragmentViewBinding
-import com.example.todolistproject.model.DatePickerFragment
-import com.example.todolistproject.model.Task
-import com.example.todolistproject.model.alltasks
 import com.example.todolistproject.model.TaskViewModel
 
 private const val position = "title"
@@ -41,7 +36,7 @@ class ViewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater , R.layout.fragment_view , container , false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_view, container, false)
 
         return binding.root
 
@@ -58,53 +53,42 @@ class ViewFragment : Fragment() {
             viewModel = sharedViewModel
         }
 
-        //To display data
         sharedViewModel.showData()
-        setTheStateInView()
-
 
 
         binding.editButton.setOnClickListener {
-//            sharedViewModel.showData()
             findNavController().navigate(R.id.action_viewFragment_to_editIFragment)
 
         }
 
-        binding.button1.setOnClickListener{
+
+        binding.doneButton.setOnClickListener {
             backtoMainFrag()
         }
 
-        binding.doneButton.setOnClickListener{
-            backtoMainFrag()
-        }
+        sharedViewModel.setCreationDay()
 
-        sharedViewModel.setCurrentDay()
+        /**
+         * To check whether the due date is passed or not ,
+         * the calculateHMDayLeft() in [TaskViewModel].
+         */
+        sharedViewModel.checkTaskState()
 
-        //To assign the task is passed or no
-
-        sharedViewModel.assignTheDate()
-
-        //To calculate the num of day past
+        /**
+         * Pass the due date to calculateHMDayLeft
+         * function in [TaskViewModel].
+         */
         sharedViewModel.calculateHMDayLeft(sharedViewModel.dueDate.value!!)
 
     }
 
-    fun setTheStateInView(){
-        if (sharedViewModel.setState())
-            binding.viewIsCompleted.text = "DONE"
-            binding.viewIsCompleted.setPaintFlags(
-            binding.viewIsCompleted.getPaintFlags() or
-                    Paint.STRIKE_THRU_TEXT_FLAG)
-
-
-    }
-
-
-    fun backtoMainFrag(){
+    /**
+     * Navigate
+     */
+    fun backtoMainFrag() {
         findNavController().navigate(R.id.action_viewFragment_to_toDoListFragment)
 
     }
-
 
 
 }

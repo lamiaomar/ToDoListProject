@@ -9,20 +9,27 @@
     <string name="TASKDETAILS">TASK DETAILS</string>
     <string name="DUEDATE">DUE DATE</string>
     <string name="NOTES">NOTES</string>
-    <string name="app" />
+    <string name="app" translatable="false" />
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="not_completed">Not Completed</string>
     <string name="comleted">Comleted</string>
-    <string name="not">Not</string>
+    <string name="not" translatable="false">Not</string>
     <string name="creationDay">The creation date %s</string>
-    
+
     <string name="remove">Remove the task?</string>
-    <string name="message">Are you sure you want to delete the ? </string>
+    <string name="message">Are you sure you want to delete the task ? </string>
     <string name="exit">Exit</string>
     <string name="delete">Delete</string>
     <string name="TaskDetalis">Task Details</string>
     <string name="addNewTask">Add New Task</string>
     <string name="edit">Edit</string>
     <string name="creationdate">creationDate</string>
+    <string name="Youhavetofillallfields">You have to fill all fields</string>
+    <string name="enterthetitle">Enter the title</string>
+    <string name="calender">Calender</string>
+    <string name="enterYourNote">Enter Your Note</string>
+    <string name="tap_to_edit">Tap to Edit</string>
+    <string name="Dataisupdated">Data is updated</string>
+    <string name="tasks">Tasks</string>
 </resources>

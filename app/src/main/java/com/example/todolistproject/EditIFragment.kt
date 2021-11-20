@@ -1,13 +1,11 @@
 package com.example.todolistproject
 
 import android.os.Bundle
-import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
@@ -25,7 +23,7 @@ class EditIFragment : Fragment() {
     val currentPosition
         get() = _currentPosition
 
-    private var _binding : FragmentEditIBinding? = null
+    private var _binding: FragmentEditIBinding? = null
     private val binding get() = _binding!!
 
     private val sharedViewModel: TaskViewModel by activityViewModels()
@@ -36,24 +34,23 @@ class EditIFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = DataBindingUtil.inflate(inflater , R.layout.fragment_edit_i , container , false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_i, container, false)
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-//        sharedViewModel.currentPosition.value = taskNum
-
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             binding.editFragment = this@EditIFragment
 
-
         }
 
-        //Calender
+        /**
+         *To display the Calender
+         */
         _binding?.apply {
             button1.setOnClickListener {
                 //create the object
@@ -78,39 +75,35 @@ class EditIFragment : Fragment() {
             }
         }
 
-        sharedViewModel.setCurrentDay()
 
-        //To display data
+        sharedViewModel.setCreationDay()
+
+
+        /**
+         * To display data via showData() fun in [TaskViewModel]
+         */
         sharedViewModel.showData()
 
 
-//        binding.doneButton.setOnClickListener {
-//            changeThestate()
-//            Toast.makeText(context, "Data is updated", Toast.LENGTH_SHORT).show()
-//            findNavController().navigate(R.id.action_editIFragment_to_viewFragment)
-//
-//        }
-
+        /**
+         * when the  user click on delete button display dialog
+         */
         binding.deleteButton.setOnClickListener {
-            showFinalScoreDialog()
+            showDeleteDialog()
         }
-
 
 
     }
 
-    fun displayTheEdit(){
-        Toast.makeText(context, "Data is updated", Toast.LENGTH_SHORT).show()
+
+    fun displayTheEdit() {
+        Toast.makeText(context, getString(R.string.Dataisupdated), Toast.LENGTH_SHORT).show()
         sharedViewModel.editInList()
         findNavController().navigate(R.id.action_editIFragment_to_toDoListFragment)
     }
 
-    fun changeThestate(){
-        sharedViewModel.setState()
-    }
 
-
-    private fun showFinalScoreDialog() {
+    private fun showDeleteDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.remove))
             .setMessage(getString(R.string.message))
@@ -130,7 +123,7 @@ class EditIFragment : Fragment() {
 
     }
 
-    fun backtoMainFrag(){
+    fun backtoMainFrag() {
 
         findNavController().navigate(R.id.action_editIFragment_to_toDoListFragment)
     }

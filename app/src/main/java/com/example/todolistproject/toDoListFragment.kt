@@ -18,12 +18,12 @@ import javax.sql.DataSource
 
 class toDoListFragment : Fragment() {
 
- private var _binding : FragmentToDoListBinding? = null
- private val binding get() = _binding!!
+    private var _binding: FragmentToDoListBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
 
-    lateinit var dataset : MutableList<Task>
+    lateinit var dataset: MutableList<Task>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,18 +36,18 @@ class toDoListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentToDoListBinding.inflate(inflater , container , false)
+        _binding = FragmentToDoListBinding.inflate(inflater, container, false)
         val view = binding.root
-//        val button : Button = view.findViewById(R.id.floating_action_button)
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         recyclerView = binding.recyclerView
-        recyclerView.adapter = taskAdapter(this.requireContext(), dataset )
+        recyclerView.adapter = taskAdapter(this.requireContext(), dataset)
 
-        binding.floatingActionButton.setOnClickListener{
+        binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_toDoListFragment_to_addFragment)
         }
 

@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_addFragment_to_datePickerFragment"
             app:destination="@id/datePickerFragment" />
+        <action
+            android:id="@+id/action_addFragment_self"
+            app:destination="@id/addFragment" />
     </fragment>
     <fragment
         android:id="@+id/editIFragment"

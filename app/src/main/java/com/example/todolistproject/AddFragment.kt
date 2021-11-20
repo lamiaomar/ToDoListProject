@@ -23,11 +23,6 @@ class AddFragment : Fragment(R.layout.fragment_add) {
     private val sharedViewModel: TaskViewModel by activityViewModels()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,7 +45,9 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             addFragment = this@AddFragment
         }
 
-        //Calender
+        /*
+        * To display the Calender dialog
+        */
         _binding?.apply {
             dueDateButton.setOnClickListener {
 
@@ -76,21 +73,55 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             }
         }
 
+        /*
+        * Re-initializes the data in the ViewModel
+        */
         sharedViewModel.resetVlues()
 
-        //To set the current day of creation
-                         sharedViewModel.setCurrentDay()
+        /*
+        * To set the task creation date
+        */
+        sharedViewModel.setCreationDay()
 
     }
 
+
+    /*
+     *Add the task to the list in TaskViewModel,
+     * Prevent the user from ADD a task without
+     *    TITLE - DESCRIPTION - DUE DATE
+     *
+     */
     fun setTask() {
-        sharedViewModel.addItemToList()
+        if (preventNullPointerException()) {
+            sharedViewModel.addItemToList()
+            findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
+        } else {
+            Toast.makeText(context, getString(R.string.Youhavetofillallfields), Toast.LENGTH_SHORT)
+                .show()
+            findNavController().navigate(R.id.action_addFragment_self)
+        }
+    }
+
+
+    /*
+    * When the user click on cancel button
+    */
+    fun backtoMainFrag() {
+
         findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
     }
 
-    fun backtoMainFrag(){
 
-        findNavController().navigate(R.id.action_addFragment_to_toDoListFragment)
+    /*
+     * Check if the user click add button with empty field
+     * in the view model
+     */
+    fun preventNullPointerException(): Boolean {
+        if (sharedViewModel.preventNullPointerExceptionVM())
+            return true
 
+        return false
     }
 }
+

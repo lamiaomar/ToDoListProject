@@ -16,8 +16,4 @@
         <item name="buttonTint">@color/Cyan_100</item>
     </style>
 
-<!--    <style name="ThemeOverlay.App.CheckBox" parent="">-->
-<!--        <item name="colorOnSurface">@color/Cyan_800</item>-->
-<!--        <item name="colorSecondary">@color/Cyan_100</item>-->
-<!--    </style>-->
 </resources>
